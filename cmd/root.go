@@ -14,7 +14,7 @@ import (
 
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
-	Use:   "Todo-Boi",
+	Use:   "tB",
 	Short: "A simple CLI Todo app",
 	// Uncomment the following line if your bare application
 	Long: `Todo Boi is a simple CLI todo app that allows you to create, edit, and delete tasks.`,
