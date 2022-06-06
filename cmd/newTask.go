@@ -5,11 +5,7 @@ Copyright © 2022 Parsa <carnoval@protonmail.com>
 package cmd
 
 import (
-	//"encoding/json"
 	"fmt"
-	//"os"
-
-	// "github.com/Carnoval15/Todo-Boi/cmd/database"
 
 	"github.com/Carnoval15/Todo-Boi/cmd/database"
 	"github.com/spf13/cobra"
@@ -19,8 +15,8 @@ import (
 var newTaskCmd = &cobra.Command{
 	Use:     "newTask",
 	Aliases: []string{"rev"},
-	Short:   "A brief description of your command",
-	Long:    `A longer description`,
+	Short:   "Adds a new task to the list",
+
 	Args:    cobra.ExactArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
 

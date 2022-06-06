@@ -1,38 +1,32 @@
+/*
+Copyright © 2022 Parsa <carnoval@protonmail.com>
+
+*/
 package database
 
 import (
-	"encoding/json"
 	"fmt"
+	"log"
 	"os"
-
-	//"github.com/Carnoval15/Todo-Boi/cmd"
 )
 
-type Task struct {
-	Todo string
-}
-
 func Add(task string) {
-
-	input := Task{Todo: task}
-
-	data, err := json.Marshal(input)
+	f, err := os.OpenFile("data.txt", os.O_APPEND|os.O_WRONLY|os.O_CREATE, 0600)
 	if err != nil {
-		fmt.Println(err)
+		panic(err)
 	}
 
-	f, err := os.OpenFile("./data.json", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0666)
-	if err != nil {
-		fmt.Println(err)
-		return
-	}
 	defer f.Close()
 
-	n, err := f.Write(data)
-	if n, err = f.WriteString("\n"); err != nil {
-		fmt.Println(n, err)
+	if _, err = f.WriteString(task + "\n"); err != nil {
+		panic(err)
 	}
+}
 
-	fmt.Println(string(data))
-
+func Read() {
+	body, err := os.ReadFile("data.txt")
+    if err != nil {
+        log.Fatalf("unable to read file: %v", err)
+    }
+    fmt.Println("\n" + string(body))
 }
