@@ -1,3 +1,5 @@
+# Notice,
+ since I'm working on other project, I wont update the code, feel free to fork it for your projects.
 # Todo-Boi
  A simple todo CLI app
 
